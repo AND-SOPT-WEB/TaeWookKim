@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 
 .background-image{
@@ -88,3 +89,42 @@ body{
 .link i {
     size: 30px;
 }
+
+.photo-collect{
+    color:white;
+    margin-left: 20px;
+}
+.photo-banner {
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-rollers {
+    display: flex;
+    width: calc(170px * 16 + 15px * 16); /*이미지 16개 넓이 + 16개 마진 넓이*/
+    animation: scroll 10s linear infinite;
+}
+
+.roller {
+    display: flex;
+}
+
+.roller img {
+    width: 170px;
+    height: 240px;
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+.roller img:hover{
+    transform: scale(1.1);
+
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-170px * 8 - 15px * 8)); }
+}
+
+
+
