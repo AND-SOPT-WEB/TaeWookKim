@@ -39,12 +39,13 @@ body{
 .logo{
     font-size: 35px;
     margin-right: 25px;
+    font-weight: bold;
 }
 
 .item a{
     font-size: 16px;
     color: white;
-    margin-right: 15px;
+    margin-right: 20px;
     text-decoration: none;
 }
 
@@ -92,7 +93,7 @@ body{
 
 .photo-collect{
     color:white;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 .photo-banner {
     overflow: hidden;
@@ -124,6 +125,65 @@ body{
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-170px * 8 - 15px * 8)); }
+}
+
+.photo-scroll{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.photo-top{
+    color: white;
+    margin-left: 15px;
+}
+
+.photo-scrolls{
+    position: relative;
+    overflow: hidden;
+}
+
+.scroller {
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+.scroller img{
+    flex: 0 0 auto;
+    width: 170px;
+    height: 240px;
+    margin-right: 40px;
+    object-fit: cover;
+    scroll-snap-align: start;
+}
+
+.left-arrow, .right-arrow {
+    border-radius: 5%; 
+    width: 20px;
+    height: 260px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(34, 34, 34, 0.9);
+    color: white;
+    text-decoration: none;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+.scroller::-webkit-scrollbar {
+    display: none;
 }
 
 
