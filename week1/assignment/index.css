@@ -1,0 +1,190 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.background-image{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.nav-topbar{
+    position: fixed;
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-left{
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    color: white;
+    width: 50%;
+    align-items: center;
+}
+
+.topbar-right{
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    color: white;
+    width: 50%;
+}
+
+.logo{
+    font-size: 35px;
+    margin-right: 25px;
+    font-weight: bold;
+}
+
+.item a{
+    font-size: 16px;
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.emoji i{
+    margin-right: 20px;
+}
+
+.semi-title{
+    padding: 0px 20px;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 1);
+    right: 30px;
+    bottom: 100px;
+    border-radius: 10px;
+}
+.semi-title h3 {
+    color: #0d92f4;
+}
+
+.link{
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.3);
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.link:hover{
+    background-color:rgba(255, 255, 255, 0.1) ;
+    cursor: pointer;
+}
+
+.link a {
+    text-decoration: none;
+    color:white;
+}
+
+.link i {
+    size: 30px;
+}
+
+.photo-collect{
+    color:white;
+    margin-left: 15px;
+}
+.photo-banner {
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-rollers {
+    display: flex;
+    width: calc(170px * 16 + 15px * 16); /*이미지 16개 넓이 + 16개 마진 넓이*/
+    animation: scroll 10s linear infinite;
+}
+
+.roller {
+    display: flex;
+}
+
+.roller img {
+    width: 170px;
+    height: 240px;
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+.roller img:hover{
+    transform: scale(1.1);
+
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-170px * 8 - 15px * 8)); }
+}
+
+.photo-scroll{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.photo-top{
+    color: white;
+    margin-left: 15px;
+}
+
+.photo-scrolls{
+    position: relative;
+    overflow: hidden;
+}
+
+.scroller {
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+.scroller img{
+    flex: 0 0 auto;
+    width: 170px;
+    height: 240px;
+    margin-right: 40px;
+    object-fit: cover;
+    scroll-snap-align: start;
+}
+
+.left-arrow, .right-arrow {
+    border-radius: 5%; 
+    width: 20px;
+    height: 260px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(34, 34, 34, 0.9);
+    color: white;
+    text-decoration: none;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+.scroller::-webkit-scrollbar {
+    display: none;
+}
+
+
+
