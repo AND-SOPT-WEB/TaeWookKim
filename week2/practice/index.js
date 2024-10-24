@@ -1,41 +1,60 @@
-const todoList = document.querySelector(".todo-list");
+const input = document.querySelector(".input");
 const button = document.querySelector(".addButton");
-const input = document.querySelector("input");
-let todos = JSON.parse(localStorage.getItem("todos"))||[];
-let i = 0;
+const todoList = document.querySelector(".todo-list");
+let todos = [];
 
-while (i<todos.length){
-    const li = document.createElement("li");
-    const deleteButton = document.createElement("button");
-    li.textContent = todos[i];
-    todoList.appendChild(li);
-    li.appendChild(deleteButton);
-    deleteButton.textContent="삭제";
-    deleteButton.addEventListener("click", () => buttonDelete(li));
-    i++;
+//화면 새로고침시 이벤트
+function init(){
+    loadToDOs();
+    button.addEventListener("click", addTodo);
 }
 
-const buttonDelete = (li) => {
-    todoList.removeChild(li);
-    let todoToDelete = li.textContent; 
-     // li.textContent를 하면 input.value에 deleteButton.textContent인 "삭제"가 뒤에 붙어 아래와 같이 코드 작성
-    let fixedTodos = todos.filter((item) => item + "삭제" !== todoToDelete);
-    localStorage.setItem("todos",JSON.stringify(fixedTodos));
-}
-
-const buttonClick = () => {
-    const li = document.createElement("li");
-    const deleteButton = document.createElement("button");
-    /*todos 배열에 입력값 넣기*/
-    todos.push(input.value);
-    /*todos 배열을 localStorage에 저장*/
+//local storage 저장
+function saveTodo(){
     localStorage.setItem("todos",JSON.stringify(todos));
-    li.textContent = input.value;
-    todoList.appendChild(li);
-    li.appendChild(deleteButton);
-    deleteButton.textContent="삭제";
-    deleteButton.addEventListener("click", () => buttonDelete(li));
-    input.value = null;
 }
 
-button.addEventListener("click", buttonClick);
+//local storage 불러오기
+function loadToDOs(){
+    const savedTodos = localStorage.getItem("todos");
+    if(savedTodos !== null){
+        const parsedToDos = JSON.parse(savedTodos);
+        todos = parsedToDos;
+        parsedToDos.forEach(createTodo);
+    }
+}
+
+//추가 버튼 눌렀을때 이벤트
+function addTodo(){
+    const inputValue = input.value;
+    createTodo(inputValue);
+    saveTodo();
+    input.value = "";
+}
+
+//목록 삭제 이벤트
+function deleteTodo(){
+    const removeLi = event.target.parentElement;
+    const removeSpan = removeLi.querySelector('span');
+    console.log(removeSpan.innerText);
+    todos = todos.filter((item) => item !== removeSpan.innerText);
+    removeLi.remove();
+    saveTodo();
+}
+
+//목록 생성 이벤트
+function createTodo(newTodo){
+    const li =  document.createElement("li");
+    const deleteButton = document.createElement("button");
+    const span = document.createElement("span");
+    li.appendChild(span);
+    li.appendChild(deleteButton);
+    todos.push(newTodo);
+    span.innerText = newTodo;
+    deleteButton.innerText = "삭제";
+    todoList.appendChild(li);
+    deleteButton.addEventListener("click", deleteTodo);
+}
+
+init();
+
