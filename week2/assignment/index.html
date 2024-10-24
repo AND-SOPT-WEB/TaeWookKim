@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="reset.css"/>
+    <link rel ="stylesheet" href="style.css"/>
+    <title>회원 관리 페이지</title>
+    <script
+      src="https://kit.fontawesome.com/74408c48d6.js"
+      crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <header>
+        <div id="topbar">
+            <i class="fa-solid fa-bars"></i>
+            <h2>회원 관리 페이지</h2>
+            <h3>🌊AND SOPT 웹파트원 김태욱🌊</h3>
+        </div>
+    </header>
+    <main>
+        <section id="search-filter">
+            <div class="grid-wrapper">
+                <div class="input-container">
+                    <div class="search-name">이름</div>
+                    <input type="text" class="input-name" placeholder="이름을 입력하세요">
+                </div>
+                <div class="input-container">
+                    <div class="search-english-name">영문이름</div>
+                    <input type="text" class="input-english-name" placeholder="영문이름을 입력하세요">
+                </div>
+                <div class="input-container">
+                    <div class="search-github">GitHub</div>
+                    <input type="text" class="input-github" placeholder="Github ID를 입력하세요">
+                </div>
+                <div class="input-container">
+                    <div class="search-gender">성별</div>
+                    <select name="gender" class="filter-gender">
+                        <option value="" disabled selected>성별 선택</option>
+                        <option value="male">남성</option>
+                        <option value="female">여성</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <div class="search-position">역할</div>
+                    <select name="position" class="filter-position">
+                        <option value="" disabled selected>OB/YB 선택</option>
+                        <option value="male">OB</option>
+                        <option value="female">YB</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <div class="one-week-team">1주차 금잔디조</div>
+                    <input type="text" class="input-one-week-team" placeholder="1주차 금잔디조를 입력하세요(1~9)">
+                </div>
+                <div class="input-container">
+                    <div class="two-week-team">2주차 금잔디조</div>
+                    <input type="text" class="input-two-week-team" placeholder="2주차 금잔디조를 입력하세요(1~9)">
+                </div>
+                <div class="button-contaioner">
+                    <button class="clear-button">초기화</button>
+                </div>
+                <div class="button-contaioner">
+                    <button class="search-button">검색</button>
+                </div>
+            </div>
+        </section>
+        <section id="middle-button">
+            <div>
+                <button class="select-delete-button">선택삭제</button>
+                <button class="add-button">추가</button>
+            </div>
+        </section>
+        <section id="search-result">
+            <table id="result-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>이름</th>
+                        <th>영문이름</th>
+                        <th>GitHub</th>
+                        <th>성별</th>
+                        <th>역할</th>
+                        <th>1주차 금잔디</th>
+                        <th>2주차 금잔디</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
