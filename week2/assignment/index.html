@@ -23,51 +23,59 @@
         <section id="search-filter">
             <div class="grid-wrapper">
                 <div class="input-container">
-                    <div class="search-name">이름</div>
-                    <input type="text" class="input-name" placeholder="이름을 입력하세요">
+                    <div class="search-name">
+                        <span class="label">이름</span>
+                        <input type="text" class="input" placeholder="이름을 입력하세요">
+                    </div>
                 </div>
                 <div class="input-container">
-                    <div class="search-english-name">영문이름</div>
-                    <input type="text" class="input-english-name" placeholder="영문이름을 입력하세요">
+                    <div class="search-english-name">
+                        <span class="label">영문이름</span>
+                        <input type="text" class="input" placeholder="영문이름을 입력하세요">
+                    </div>
                 </div>
                 <div class="input-container">
-                    <div class="search-github">GitHub</div>
-                    <input type="text" class="input-github" placeholder="Github ID를 입력하세요">
+                    <div class="search-github">
+                        <span class="label">GitHub</span>
+                        <input type="text" class="input" placeholder="Github ID를 입력하세요">
+                    </div>
+                    <div class="search-gender">
+                        <span class="label">성별</span>
+                        <select name="gender" class="input">
+                            <option value="" disabled selected>성별 선택</option>
+                            <option value="male">남성</option>
+                            <option value="female">여성</option>
+                        </select>
+                    </div>
+                    <div class="search-position">
+                        <span class="label">역할</span>
+                        <select name="position" class="input">
+                            <option value="" disabled selected>OB/YB 선택</option>
+                            <option value="male">OB</option>
+                            <option value="female">YB</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="input-container">
-                    <div class="search-gender">성별</div>
-                    <select name="gender" class="filter-gender">
-                        <option value="" disabled selected>성별 선택</option>
-                        <option value="male">남성</option>
-                        <option value="female">여성</option>
-                    </select>
+                    <div class="one-week-team">
+                        <span class="label">1주차 금잔디조</span>
+                        <input type="text" class="input" placeholder="1주차 금잔디조를 입력하세요(1~9)">
+                    </div>
+                    <div class="two-week-team">
+                        <span class="label">2주차 금잔디조</span>
+                        <input type="text" class="input" placeholder="2주차 금잔디조를 입력하세요(1~9)">
+                    </div>
                 </div>
                 <div class="input-container">
-                    <div class="search-position">역할</div>
-                    <select name="position" class="filter-position">
-                        <option value="" disabled selected>OB/YB 선택</option>
-                        <option value="male">OB</option>
-                        <option value="female">YB</option>
-                    </select>
-                </div>
-                <div class="input-container">
-                    <div class="one-week-team">1주차 금잔디조</div>
-                    <input type="text" class="input-one-week-team" placeholder="1주차 금잔디조를 입력하세요(1~9)">
-                </div>
-                <div class="input-container">
-                    <div class="two-week-team">2주차 금잔디조</div>
-                    <input type="text" class="input-two-week-team" placeholder="2주차 금잔디조를 입력하세요(1~9)">
-                </div>
-                <div class="button-contaioner">
-                    <button class="clear-button">초기화</button>
-                </div>
-                <div class="button-contaioner">
-                    <button class="search-button">검색</button>
+                    <div class="button-container">
+                        <button class="clear-button">초기화</button>
+                        <button class="search-button">검색</button>
+                    </div>
                 </div>
             </div>
         </section>
         <section id="middle-button">
-            <div>
+            <div class="middle-buttons">
                 <button class="select-delete-button">선택삭제</button>
                 <button class="add-button">추가</button>
             </div>
@@ -76,7 +84,9 @@
             <table id="result-table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>
+                            <input type="checkbox" class="all-check"/>
+                        </th>
                         <th>이름</th>
                         <th>영문이름</th>
                         <th>GitHub</th>

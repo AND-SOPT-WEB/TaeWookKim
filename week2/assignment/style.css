@@ -1,0 +1,213 @@
+#topbar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2.8rem 2rem;
+    background-color: burlywood;
+    
+
+    i {
+        font-size: 1.6rem;
+        flex: 1;
+    }
+    
+    h2 {
+        font-size: 2.6rem;
+        font-weight: bold;
+        flex: 1;
+        text-align: center;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color:white;
+        flex: 1;
+        text-align: end;
+    }
+}
+
+#search-filter{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 10.5rem;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 65rem;
+    grid-template-rows: 3.5rem;
+    background-color: burlywood;
+    padding: 1.5rem;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    grid-template-areas: 
+        "name"
+        "english-name"
+        "github gender position"
+        "one-week-team two-week-team"
+        "button-container";
+}
+
+.input-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 9rem;
+    height: 3.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: rgb(219, 206, 188);
+}
+
+.input {
+    width: 100%;
+    height: 3.5rem;
+    padding: 0rem 1rem;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.search-name {
+    grid-area: name;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-english-name {
+    grid-area: english-name;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-github {
+    grid-area: github;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-gender {
+    grid-area: gender;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-position {
+    grid-area: position;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.one-week-team {
+    grid-area: one-week-team;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.two-week-team {
+    grid-area: two-week-team;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.button-container {
+    grid-area: button-container;
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button{
+        width: 100%;
+        height: 3.5rem;
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+        border: none;
+    }
+
+    .clear-button{
+        background-color: #b27538;
+        color: white;
+    }
+
+    .search-button{
+        background-color: #8a715a;
+        color: white;
+    }
+}
+
+#middle-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.middle-buttons{
+    display: flex;
+    width: 68rem;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    
+    button{
+        width: 8rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+        border: none;
+    }
+
+    .select-delete-button{
+        background-color: #b27538;
+        color: white;
+    }
+
+    .add-button{
+        background-color: #8a715a;
+        color: white;
+    }
+}
+
+#search-result{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.8rem;
+}
+
+#result-table{ 
+    width:68rem;
+    border: 1px solid #CDB9AB;
+    border-collapse: collapse;
+
+    th {
+        border: 1px solid #CDB9AB;
+        background-color: #9D7F64;
+        color: #fff;
+        height: 3rem;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+
+    td {
+        border: 1px solid #CDB9AB;
+        background-color: #fff;
+        text-align: center;
+        height: 3rem;
+    }
+}
