@@ -194,6 +194,7 @@
     width:68rem;
     border: 1px solid #CDB9AB;
     border-collapse: collapse;
+    margin-bottom: 2rem;
 
     th {
         border: 1px solid #CDB9AB;
@@ -208,6 +209,7 @@
         border: 1px solid #CDB9AB;
         background-color: #fff;
         text-align: center;
+        vertical-align: middle;
         height: 3rem;
     }
 }
