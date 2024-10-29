@@ -140,6 +140,7 @@
         border-radius: 0.5rem;
         font-size: 1.2rem;
         border: none;
+        cursor: pointer;
     }
 
     .clear-button{
@@ -171,6 +172,7 @@
         font-size: 1.2rem;
         border-radius: 0.5rem;
         border: none;
+        cursor: pointer;
     }
 
     .select-delete-button{
@@ -212,4 +214,71 @@
         vertical-align: middle;
         height: 3rem;
     }
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-window{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 2em 2rem 3rem 2rem;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 0.5rem;
+    width: 25rem;
+}
+
+.modal-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .modal-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    i{
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+.modal-span{
+    margin-top:1rem;
+}
+
+.modal-input, .modal-select {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    width: 23rem;
+    font-size: 1.2rem;
+}
+
+.modal-add-button {
+    background-color: #46372A;
+    color: #fff;
+    border-radius: 0.3rem;
+    height: 3rem;
+    width: 24.5rem;
+    margin-top:1rem;
+}
+
+tbody a {
+    color: black; 
 }
