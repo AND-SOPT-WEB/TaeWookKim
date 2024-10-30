@@ -168,7 +168,7 @@ document.querySelector('.modal-add-button').addEventListener('click', ()=>{
 
     // 새로운 멤버 생성
     const newMember = {
-        id: members.length + 1, 
+        id: members.length > 0 ? Math.max(...members.map(member => member.id)) + 1 : 1,
         name,
         englishName,
         github,
