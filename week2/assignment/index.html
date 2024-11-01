@@ -15,18 +15,18 @@
     <header>
         <div id="topbar">
             <i class="fa-solid fa-bars"></i>
-            <h2>회원 관리 페이지</h2>
-            <h3>🌊AND SOPT 웹파트원 김태욱🌊</h3>
+            <h1>회원 관리 페이지</h1>
+            <h2>🌊AND SOPT 웹파트원 김태욱🌊</h2>
         </div>
     </header>
 
-    <div class="modal">
+    <dialog class="modal">
         <div class="modal-window">
             <div class="modal-title-container">
                 <h3 class="modal-title">새 멤버 추가</h3>
                 <i class="fa-solid fa-xmark" id="close-button"></i>
             </div>
-            <div class="modal-input">
+            <form class="modal-input">
                 <div class="modal-span">이름</div>
                 <input type="text" id="modal-name" class="modal-input" placeholder="이름을 입력하세요">
                 <div class="modal-span">영문 이름</div>
@@ -52,32 +52,32 @@
                 <div class="modal-button">
                     <button type="button" class="modal-add-button">추가</button>                
                 </div>
-            </div>
+            </form>
         </div>
-    </div>
+    </dialog>
 
     <main>
         <section id="search-filter">
-            <div class="grid-wrapper">
+            <form class="grid-wrapper">
                 <div class="input-container">
                     <div class="search-name">
-                        <span class="label">이름</span>
+                        <label class="label">이름</label>
                         <input type="text" class="input" name="name" placeholder="이름을 입력하세요">
                     </div>
                 </div>
                 <div class="input-container">
                     <div class="search-english-name">
-                        <span class="label">영문이름</span>
+                        <label class="label">영문이름</label>
                         <input type="text" class="input" name="englishname" placeholder="영문이름을 입력하세요">
                     </div>
                 </div>
                 <div class="input-container">
                     <div class="search-github">
-                        <span class="label">GitHub</span>
+                        <label class="label">GitHub</label>
                         <input type="text" class="input" name="github" placeholder="Github ID를 입력하세요">
                     </div>
                     <div class="search-gender">
-                        <span class="label">성별</span>
+                        <label class="label">성별</label>
                         <select name="gender" class="input">
                             <option value="" disabled selected>성별 선택</option>
                             <option value="male">남자</option>
@@ -85,7 +85,7 @@
                         </select>
                     </div>
                     <div class="search-position">
-                        <span class="label">역할</span>
+                        <label class="label">역할</label>
                         <select name="position" class="input">
                             <option value="" disabled selected>OB/YB 선택</option>
                             <option value="OB">OB</option>
@@ -95,11 +95,11 @@
                 </div>
                 <div class="input-container">
                     <div class="one-week-team">
-                        <span class="label">1주차 금잔디조</span>
+                        <label class="label">1주차 금잔디조</label>
                         <input type="text" class="input" name="oneweek" placeholder="1주차 금잔디조를 입력하세요(1~9)">
                     </div>
                     <div class="two-week-team">
-                        <span class="label">2주차 금잔디조</span>
+                        <label class="label">2주차 금잔디조</label>
                         <input type="text" class="input" name="twoweek" placeholder="2주차 금잔디조를 입력하세요(1~9)">
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                         <button class="search-button">검색</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
         <section id="middle-button">
             <div class="middle-buttons">

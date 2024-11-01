@@ -290,7 +290,7 @@ export const members = [
       secondWeekGroup: 8,
     },
   ];
-  
+
   if (!localStorage.getItem("membersData")) {
     localStorage.setItem("membersData", JSON.stringify(members));
   }

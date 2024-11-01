@@ -1,20 +1,20 @@
-import { members as defaultMembers } from './members-info.js'; 
+import { members as defaultMembers } from './members-info.js';
 // 모달
 const modal = document.querySelector('.modal');
 const openModal = document.querySelector('.add-button');
 const closeModal = document.getElementById('close-button');
 // 모달 열기
-openModal.addEventListener('click', function(){
-    modal.style.display = 'block';
+openModal.addEventListener('click', function() {
+    modal.showModal();
 });
-//모달 닫기
+// 모달 닫기
 closeModal.addEventListener('click', function() {
-    modal.style.display = 'none';
+    modal.close();
 });
-// 백드롭 클릭 시 모달 닫기
-modal.addEventListener('click', (event) => {
+// 백드롭 클릭 시 닫기
+modal.addEventListener('click', function(event) {
     if (event.target === modal) {
-        closeToModal();
+        modal.close();
     }
 });
 
@@ -37,75 +37,60 @@ function saveMembers(data){
 }
 
 // table에 localStorage data값 넣기
-function fillTable(data){
-
+function fillTable(data) {
     const tBody = document.querySelector("tbody");
     tBody.innerHTML = '';
 
-    data.forEach (member =>{
-        const tr = document.createElement("tr");
+    // 데이터가 없을 경우 처리
+    if (!data || data.length === 0) {
+        tBody.innerHTML = `<tr><td colspan="8">일치하는 회원이 없습니다.</td></tr>`;
+        return;
+    }
 
-        const checkTd = document.createElement("td");
-        const checkbox =document.createElement("input");
-        checkbox.type = "checkbox";
-        checkTd.appendChild(checkbox);
-        
-        const nameTd = document.createElement("td");
-        const englishnameTd = document.createElement("td");
+    // 멤버 리스트 생성
+    const showMemberList = data.map(member => {
+        return `
+            <tr id="${member.id}">
+                <td><input type="checkbox" class="webby_checkbox"></td>
+                <td>${member.name}</td>
+                <td>${member.englishName}</td>
+                <td><a href="https://github.com/${member.github}" target="_blank">${member.github}</a></td>
+                <td>${member.gender === 'male' ? '남자' : '여자'}</td>
+                <td>${member.role}</td>
+                <td>${member.firstWeekGroup}</td>
+                <td>${member.secondWeekGroup}</td>
+            </tr>
+        `;
+    });
 
-        const githubTd = document.createElement("td");
-        const gitLink = document.createElement("a");
-        gitLink.href = `https://github.com/${member.github}`;
-        gitLink.target = "_blank";
-        gitLink.textContent = member.github;
-        githubTd.appendChild(gitLink);
+    tBody.innerHTML += showMemberList.join("");
+    checkboxLogic();
+}
 
-        const genderTd = document.createElement("td");
-        const positionTd = document.createElement("td");
-        const oneweekTd = document.createElement("td");
-        const twoweekTd = document.createElement("td");
+function checkboxLogic() {
+    const checkBoxes = document.querySelectorAll('tbody input[type="checkbox"]');
+    const allCheckbox = document.querySelector('.check-all');
 
-        nameTd.textContent = member.name;
-        englishnameTd.textContent = member.englishName;
-        genderTd.textContent = member.gender === 'male' ? '남자' : '여자';
-        positionTd.textContent = member.role;
-        oneweekTd.textContent = member.firstWeekGroup;
-        twoweekTd.textContent = member.secondWeekGroup;
-
-        tr.appendChild(checkTd);
-        tr.appendChild(nameTd);
-        tr.appendChild(englishnameTd);
-        tr.appendChild(githubTd);
-        tr.appendChild(genderTd);
-        tr.appendChild(positionTd);
-        tr.appendChild(oneweekTd);
-        tr.appendChild(twoweekTd);
-
-        tBody.appendChild(tr);
-
-        const checkBoxes = document.querySelectorAll('tbody input[type="checkbox"]');
-        const allCheckbox = document.querySelector('.check-all');
-
-        //체크박스 전체 선택
-        allCheckbox.addEventListener('change', (event)=>{
-            const ischecked = event.target.checked;
-            checkBoxes.forEach(checkbox =>{
-                checkbox.checked = ischecked;
-            })
+    // 체크박스 전체 선택
+    allCheckbox.addEventListener('change', (event) => {
+        const isChecked = event.target.checked;
+        checkBoxes.forEach(checkbox => {
+            checkbox.checked = isChecked;
         });
+    });
 
-        //체크 박스 하나라도 선택 해제하면 전체 선택 해제
-        checkBoxes.forEach(checkbox =>{
-            checkbox.addEventListener('change',()=>{
-                const findcheck = Array.from(checkBoxes).every (checkbox => checkbox.checked);
-                allCheckbox.checked = findcheck;
-            });
+    // 체크박스 하나라도 선택 해제하면 전체 선택 해제
+    checkBoxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const allChecked = Array.from(checkBoxes).every(checkbox => checkbox.checked);
+            allCheckbox.checked = allChecked;
         });
-    })
+    });
 }
 
 //필터링 검색
-document.querySelector('.search-button').addEventListener('click', ()=>{
+document.querySelector('.search-button').addEventListener('click', (event)=>{
+    event.preventDefault();
     const members = loadMembers();
     const nameInput = document.querySelector('input[name="name"]').value;
     const englishNameInput = document.querySelector('input[name="englishname"]').value.toLowerCase();
@@ -168,7 +153,7 @@ document.querySelector('.modal-add-button').addEventListener('click', ()=>{
 
     // 새로운 멤버 생성
     const newMember = {
-        id: members.length > 0 ? Math.max(...members.map(member => member.id)) + 1 : 1,
+        id: Date.now(),
         name,
         englishName,
         github,
