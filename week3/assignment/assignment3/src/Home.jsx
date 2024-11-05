@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useState } from 'react';
 import Header from './components/Header';
+import Game from './components/Game';
 import { Theme } from "./styles/theme";
 
 const Home = () =>{
