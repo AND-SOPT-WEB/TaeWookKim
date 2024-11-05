@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Game from './components/Game';
 import Rank from './components/Rank'
-import { Theme } from "./styles/theme";
 
 const Home = () =>{
     const [menu, setMenu] = useState("game");
