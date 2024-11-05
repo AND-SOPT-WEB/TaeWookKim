@@ -18,28 +18,6 @@ const createNums = (min, max) => {
   return randomArray(nums);
 };
 
-//시간 설정
-const formatDate = (timestamp) => {
-  const dateObj = new Date(timestamp);
-
-  let [year, month, day, hour, minute, second] = [
-    dateObj.getFullYear(),
-    dateObj.getMonth() + 1,
-    dateObj.getDate(),
-    dateObj.getHours(),
-    dateObj.getMinutes(),
-    dateObj.getSeconds(),
-  ];
-
-  const period = hour >= 12 ? '오후' : '오전';
-  hour = hour % 12 || 12;
-
-  const pad = (num) => num.toString().padStart(2, '0');
-  const formattedDate = `${year}.${pad(month)}.${pad(day)}`;
-  const formattedTime = `${period} ${pad(hour)}시 ${pad(minute)}분 ${pad(second)}초`;
-  return `${formattedDate} ${formattedTime}`;
-};
-
 // 결과 저장 및 local 저장소에서 넣고 빼기
 const saveResult = (time, level) => {
   const result = {
@@ -62,9 +40,9 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
   const [isFinish, setIsFinish] = useState(false);
   const [beforeNums, setBeforeNums] = useState(createNums(1, boardSize));
   const [afterNums, setAfterNums] = useState(createNums(boardSize + 1, maxNum));
+  const [clickedNumbers, setClickedNumbers] = useState([]);
 
   const checkNumberClick = (number) => {
-    const clickedCard = document.querySelector(`.clicked${number}`);
     // 게임을 시작 할때 타이머를 시작시키는 로직
     if (currentNum === 1) {
       const id = setInterval(() => {
@@ -90,7 +68,8 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
       );
       setBeforeNums(updatedBoard);
     }
-    clickedCard.classList.remove(`.clicked${currentNum}}`);
+    
+    setClickedNumbers((prev) => [...prev, number]);
     setCurrentNum(currentNum + 1);
 
     if (number === maxNum) {
@@ -104,6 +83,7 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
   const closeModal = () => {
     setBeforeNums(createNums(1, boardSize));
     setAfterNums(createNums(boardSize + 1, maxNum));
+    setClickedNumbers([]);
     setIsFinish(false);
     setCurrentNum(1);
     handleTimeChange(0);
@@ -112,6 +92,7 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
   useEffect(() => {
     setBeforeNums(createNums(1, boardSize));
     setAfterNums(createNums(boardSize + 1, maxNum));
+    setClickedNumbers([]);
     setIsFinish(false);
     clearInterval(timeId);
     setCurrentNum(1);
@@ -127,6 +108,7 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
     closeModal,
     createNums,
     checkNumberClick,
+    clickedNumbers,
   };
 };
 

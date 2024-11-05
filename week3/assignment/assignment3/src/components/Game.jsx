@@ -1,6 +1,7 @@
 import {keyframes} from "@emotion/react";
 import styled from '@emotion/styled';
 import { Theme } from '../styles/theme';
+import Modal from './Modal';
 import gameAlgorithm from '../algorithm/GameAlgorithm';
 
 const Game = ({ level, timer, handleTimerChange }) => {
@@ -11,6 +12,7 @@ const Game = ({ level, timer, handleTimerChange }) => {
   const isFinish = gameData.isFinish;
   const checkNumberClick = gameData.checkNumberClick;
   const closeModal = gameData.closeModal;
+  const clickedNumbers = gameData.clickedNumbers;
 
   return (
     <>
@@ -19,8 +21,9 @@ const Game = ({ level, timer, handleTimerChange }) => {
       <GameBoard row={rowNum}>
           {beforeNums.map((number, i) => (
             <NumberCard
-              key={i}
-              className={`clicked${number}`}
+              key ={i}
+              number={number}
+              className={clickedNumbers.includes(number) ? "clicked" : ""}
               onClick={() => checkNumberClick(number)}
             >
               {number}

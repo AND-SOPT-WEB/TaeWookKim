@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useState } from 'react';
 import Header from './components/Header';
 import Game from './components/Game';
+import Rank from './components/Rank'
 import { Theme } from "./styles/theme";
 
 const Home = () =>{
@@ -43,7 +44,6 @@ const Main = styled.main`
   height: 100%;
   margin: 0 auto;
   padding-top: 2rem;
-  background-color: ${Theme.color.purple5};
 `;
 
 export default Home;
