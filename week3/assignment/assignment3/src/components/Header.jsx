@@ -72,12 +72,13 @@ const Select = styled.select`
 border-radius : 0.4rem;
 font-size: 1.1rem;
 padding: 0.3rem;
-margin-right: 1rem;
 `
 
 const Time = styled.div`
 color: white;
 font-size: 1.3rem;
+width: 2rem;
+padding: 1rem;
 `
 
 export default Header;
