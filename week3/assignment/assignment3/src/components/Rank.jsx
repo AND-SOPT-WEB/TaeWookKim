@@ -9,7 +9,7 @@ const Rank =()=>{
 
     useEffect(() => {
         const savedRank = JSON.parse(localStorage.getItem("results"))||[];
-        //lodash함수를 사용하여 정렬
+        //orderBy함수를 사용하여 정렬
         const sortedRank = orderBy(savedRank, ['level', 'time'], ['desc', 'asc']);
         setRanking(sortedRank);
     }, []);

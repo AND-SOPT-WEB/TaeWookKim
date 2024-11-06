@@ -40,7 +40,6 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
   const [isFinish, setIsFinish] = useState(false);
   const [beforeNums, setBeforeNums] = useState(createNums(1, boardSize));
   const [afterNums, setAfterNums] = useState(createNums(boardSize + 1, maxNum));
-  const [clickedNumbers, setClickedNumbers] = useState([]);
 
   const checkNumberClick = (number) => {
     // 게임을 시작 할때 타이머를 시작시키는 로직
@@ -69,7 +68,6 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
       setBeforeNums(updatedBoard);
     }
     
-    setClickedNumbers((prev) => [...prev, number]);
     setCurrentNum(currentNum + 1);
 
     if (number === maxNum) {
@@ -83,7 +81,6 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
   const closeModal = () => {
     setBeforeNums(createNums(1, boardSize));
     setAfterNums(createNums(boardSize + 1, maxNum));
-    setClickedNumbers([]);
     setIsFinish(false);
     setCurrentNum(1);
     handleTimeChange(0);
@@ -92,7 +89,6 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
   useEffect(() => {
     setBeforeNums(createNums(1, boardSize));
     setAfterNums(createNums(boardSize + 1, maxNum));
-    setClickedNumbers([]);
     setIsFinish(false);
     clearInterval(timeId);
     setCurrentNum(1);
@@ -102,13 +98,13 @@ const gameAlgorith = (level, timer, handleTimeChange) => {
 
   return {
     rowNum,
+    maxNum,
     beforeNums,
     currentNum,
     isFinish,
     closeModal,
     createNums,
     checkNumberClick,
-    clickedNumbers,
   };
 };
 

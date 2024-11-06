@@ -7,12 +7,12 @@ import gameAlgorithm from '../algorithm/GameAlgorithm';
 const Game = ({ level, timer, handleTimerChange }) => {
   const gameData = gameAlgorithm(level, timer, handleTimerChange);
   const rowNum = gameData.rowNum;
+  const maxNum = gameData.maxNum;
   const beforeNums = gameData.beforeNums; 
   const currentNum = gameData.currentNum;
   const isFinish = gameData.isFinish;
   const checkNumberClick = gameData.checkNumberClick;
   const closeModal = gameData.closeModal;
-  const clickedNumbers = gameData.clickedNumbers;
 
   return (
     <>
@@ -23,8 +23,8 @@ const Game = ({ level, timer, handleTimerChange }) => {
             <NumberCard
               key ={i}
               number={number}
-              className={clickedNumbers.includes(number) ? "clicked" : ""}
               onClick={() => checkNumberClick(number)}
+              className={number > maxNum/2 && number <= maxNum ? 'clicked' : ''}
             >
               {number}
             </NumberCard>
@@ -77,10 +77,10 @@ const NumberCard = styled.button`
     props.number !== null ? Theme.color.lightgreen : "transparent"};
   color: ${Theme.color.white};
   ${Theme.font.large};
-  
-  &.clicked{
+
+  &.clicked {
+    animation: ${blinkEffect} 0.5s;
     background-color: ${Theme.color.darkgreen};
-    animation: ${blinkEffect} 1s;
   }
 `
 
