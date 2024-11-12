@@ -56,7 +56,13 @@ const font = {
     font-weight: 600;
     line-height: 150%;
     color: brown;
-  `
+  `,
+  h2medium: css`
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 100%;
+    color: black;
+  `,
 };
 
 export const Theme = {

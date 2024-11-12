@@ -71,9 +71,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  width: 60%;
-  height: 100vh;
-  width: 60%;
+  width: 100%;
   height: 100vh;
   padding: 5vw 5vh;
 `;

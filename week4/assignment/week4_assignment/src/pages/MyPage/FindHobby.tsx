@@ -66,9 +66,11 @@ export default FindHobby;
 
 const HobbyContainer = styled.section`
   width: 100%;
-  height: 60%;
-  isplay: flex;
+  height: 40%;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 `;
 const H2 = styled.h2`
@@ -77,7 +79,6 @@ const H2 = styled.h2`
 
 const Span = styled.span`
   ${Theme.font.h3bronze}
-  padding: 0 0.5rem;
 `;
 const Input = styled.input`
   width: 20rem;
@@ -91,8 +92,9 @@ const Hobby = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  width: 20rem;
 `;
+
 const Search = styled.div`
   display: flex;
   flex-direction: column;
@@ -106,7 +108,7 @@ const Button = styled.button`
   border-radius: 0.5rem;
   background-color: ${Theme.color.Yellowgreen};
   color: ${Theme.color.White};
-  transition: background-color 0.4s ease;
+  transition: background-color 0.2s ease;
   &:hover {
     background-color: ${Theme.color.Darkbrown};
   }
