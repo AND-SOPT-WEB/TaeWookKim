@@ -55,7 +55,7 @@ const SignUp = () => {
       navigate('/');
     } catch (e) {
       if (e instanceof Error) {
-        alert(e.message);
+        console.log(e.message);
       } else {
         alert('회원가입에 실패했습니다.');
       }
