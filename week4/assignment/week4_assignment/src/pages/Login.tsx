@@ -2,19 +2,45 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Theme } from '../styles/Themes';
+import instance from '../api/axios';
+import axios from 'axios';
+import { AXIOS_ERROR_CODES } from '../api/axiosErrorCodes';
 
 const Login = () => {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+
   // 회원 가입 클릭 시 회원 가입 페이지로 이동
   const MovetoSignup = () => {
     navigate('/signup');
   };
-  // 로그인 버튼 클릭 시
-  const ClickLogin = () => {
 
-  }
+  // 로그인 API요청
+  const ApiLogin = async () => {
+    const response = await instance.post('/login', {
+      username: id,
+      password: pw,
+    });
+    return response.data.result.token;
+  };
+
+  // 로그인 버튼 클릭시
+  const ClickLogin = async () => {
+    try {
+      const token = await ApiLogin();
+      localStorage.setItem('user', token);
+      navigate('/mypage');
+    } catch (e) { // 로그인 에러 발생시 에러 코드 처리
+      if (axios.isAxiosError(e)) {
+        const errorCode = e.response?.data?.code;
+        const errorMessage = AXIOS_ERROR_CODES[errorCode] || AXIOS_ERROR_CODES.default;
+        alert(errorMessage);
+      } else {
+        alert(AXIOS_ERROR_CODES.default);
+      }
+    }
+  };
 
   return (
     <>
@@ -71,6 +97,7 @@ const Button = styled.button`
   border-radius: 0.5rem;
   background-color: ${Theme.color.Yellowgreen};
   color: ${Theme.color.White};
+  transition: background-color 0.4s ease;
   &:hover {
     background-color: ${Theme.color.Darkbrown};
   }
