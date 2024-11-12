@@ -38,6 +38,12 @@ const font = {
   font-weight: 500;
   line-height: 100%;
   color: black;
+  `,
+  header: css`
+  font-size: 1.0rem;
+  font-weight: 500;
+  line-height: 100%;
+  color: white;
   `
 };
 
