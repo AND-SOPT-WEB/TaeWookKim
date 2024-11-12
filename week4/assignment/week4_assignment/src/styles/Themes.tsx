@@ -1,14 +1,14 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
 const color = {
-    White: '#FFFFFF',
-    Black: '#000000',
-    Yellowgreen: '#A5DF00',
-    Red: '#FF0000',
-    Lightgray: '#E6E6E6',
-    Darkbrown: '#61380B',
-    Lightblack: '#424242',
-    Gray: '#BDBDBD'
+  White: '#FFFFFF',
+  Black: '#000000',
+  Yellowgreen: '#A5DF00',
+  Red: '#FF0000',
+  Lightgray: '#E6E6E6',
+  Darkbrown: '#61380B',
+  Lightblack: '#424242',
+  Gray: '#BDBDBD',
 };
 
 const font = {
@@ -28,22 +28,34 @@ const font = {
     line-height: 120%;
   `,
   smallred: css`
-  font-size: 0.7rem;
-  font-weight: 500;
-  line-height: 160%;
-  color: red;
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 160%;
+    color: red;
   `,
   small: css`
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 100%;
-  color: black;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 100%;
+    color: black;
   `,
   header: css`
-  font-size: 1.0rem;
-  font-weight: 500;
-  line-height: 100%;
-  color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 100%;
+    color: white;
+  `,
+  h2bold: css`
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 150%;
+    color: black;
+  `,
+  h3bronze: css`
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 150%;
+    color: brown;
   `
 };
 
