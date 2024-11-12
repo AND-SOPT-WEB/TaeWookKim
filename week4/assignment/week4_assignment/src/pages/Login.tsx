@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Theme } from '../styles/Themes';
 import instance from '../api/axios';
-import axios from 'axios';
-import { AXIOS_ERROR_CODES } from '../api/axiosErrorCodes';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,14 +29,12 @@ const Login = () => {
       const token = await ApiLogin();
       localStorage.setItem('user', token);
       navigate('/mypage');
-    } catch (e) { // 로그인 에러 발생시 에러 코드 처리
-      if (axios.isAxiosError(e)) {
-        const errorCode = e.response?.data?.code;
-        const errorMessage = AXIOS_ERROR_CODES[errorCode] || AXIOS_ERROR_CODES.default;
-        alert(errorMessage);
-      } else {
-        alert(AXIOS_ERROR_CODES.default);
-      }
+    } catch (e) { // 로그인 에러 발생 시 콘솔에 출력
+        if (e instanceof Error) {
+            alert(e.message);
+          } else {
+            alert("로그인에 실패했습니다.");
+          }
     }
   };
 
