@@ -34,7 +34,7 @@ const NamePage = ({ onChange, onNext, value }: NamePageProps) => {
         {value.length > 8 && <span>이름은 8자 이하로 입력해주세요</span>}
       </InputContainer>
       <ButtonContainer>
-        <Button disabled={value.length < 0 || value.length > 8} onClick={onNext}>
+        <Button disabled={value.length == 0 || value.length > 8} onClick={onNext}>
           다음
         </Button>
       </ButtonContainer>
@@ -50,6 +50,17 @@ export default NamePage;
 
 const H2 = styled.h2`
   ${Theme.font.medium};
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  span {
+    ${Theme.font.smallred};
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+  }
 `;
 
 const Input = styled.input`
@@ -82,17 +93,6 @@ const Button = styled.button`
       background-color: ${Theme.color.Darkbrown};
     }
   `}
-`;
-
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  span {
-    ${Theme.font.smallred};
-    margin-top: 0.2rem;
-    margin-left: 0.2rem;
-  }
 `;
 
 const LoginContainer = styled.div`

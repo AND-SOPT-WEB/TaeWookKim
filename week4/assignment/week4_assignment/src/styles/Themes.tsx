@@ -23,9 +23,9 @@ const font = {
     line-height: 150%;
   `,
   medium: css`
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    line-height: 100%;
+    line-height: 120%;
   `,
   smallred: css`
   font-size: 0.7rem;
