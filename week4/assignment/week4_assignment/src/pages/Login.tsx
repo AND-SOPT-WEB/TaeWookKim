@@ -29,7 +29,7 @@ const Login = () => {
       const token = await ApiLogin();
       localStorage.setItem('user', token);
       navigate('/mypage');
-    } catch (e) { // 로그인 에러 발생 시 콘솔에 출력
+    } catch (e) {
         if (e instanceof Error) {
             alert(e.message);
           } else {
