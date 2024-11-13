@@ -3,7 +3,7 @@ import NamePage from './SignUp/NamePage';
 import PasswordPage from './SignUp/PasswordPage';
 import HobbyPage from './SignUp/HobbyPage';
 import { useNavigate } from 'react-router-dom';
-import instance from '../api/axios';
+import { instance } from '../api/axios';
 import { Theme } from '../styles/Themes';
 import styled from '@emotion/styled';
 

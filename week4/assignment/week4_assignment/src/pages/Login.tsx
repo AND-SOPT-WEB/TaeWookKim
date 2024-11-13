@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Theme } from '../styles/Themes';
-import instance from '../api/axios';
+import { instance } from '../api/axios';
 
 const Login = () => {
   const navigate = useNavigate();

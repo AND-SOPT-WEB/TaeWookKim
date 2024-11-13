@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,
 });
 
@@ -22,5 +22,3 @@ checkingInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
-export default instance;
